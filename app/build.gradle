@@ -2,6 +2,7 @@ plugins {
     id 'com.android.application'
     id 'org.jetbrains.kotlin.android'
     id 'com.google.devtools.ksp' version '1.6.10-1.0.2'
+    id 'com.diffplug.spotless'
 }
 
 kotlin {
@@ -56,6 +57,32 @@ android {
     }
 }
 
+spotless {
+
+    java {
+        target '**/*.java'
+        googleJavaFormat().aosp()
+        removeUnusedImports()
+        trimTrailingWhitespace()
+        indentWithSpaces()
+        endWithNewline()
+    }
+    kotlin {
+        target '**/*.kt'
+        ktlint()
+        trimTrailingWhitespace()
+        indentWithSpaces()
+        endWithNewline()
+    }
+    format 'misc', {
+        target '**/*.gradle', '**/*.md', '**/.gitignore'
+        indentWithSpaces()
+        trimTrailingWhitespace()
+        endWithNewline()
+    }
+
+}
+
 dependencies {
 
     implementation 'androidx.core:core-ktx:1.8.0'
@@ -78,5 +105,13 @@ dependencies {
 
     implementation "com.google.accompanist:accompanist-insets-ui:0.23.1"
     implementation "com.google.accompanist:accompanist-pager:0.26.1-alpha"
+
+//    implementation "androidx.compose:compose-runtime:$compose_version"
+//    implementation "androidx.ui:ui-framework:$compose_version"
+//    implementation "androidx.ui:ui-layout:$compose_version"
+//    implementation "androidx.ui:ui-material:$compose_version"
+//    implementation "androidx.ui:ui-foundation:$compose_version"
+//    implementation "androidx.ui:ui-animation:$compose_version"
+//    implementation "androidx.ui:ui-tooling:$compose_version"
 
 }

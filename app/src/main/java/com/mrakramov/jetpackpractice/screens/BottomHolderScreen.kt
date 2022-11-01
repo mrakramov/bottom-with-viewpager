@@ -1,5 +1,7 @@
+
 package com.mrakramov.jetpackpractice.screens
 
+import androidx.compose.animation.ExperimentalAnimationApi
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.BottomNavigationItem
 import androidx.compose.material.Icon
@@ -8,6 +10,7 @@ import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.ui.ExperimentalComposeUiApi
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import androidx.navigation.NavDestination.Companion.hierarchy
@@ -23,6 +26,7 @@ import com.mrakramov.jetpackpractice.screens.destinations.HomeScreenDestination
 import com.mrakramov.jetpackpractice.screens.destinations.ProfileScreenDestination
 import com.ramcosta.composedestinations.annotation.Destination
 
+@OptIn(ExperimentalComposeUiApi::class, ExperimentalAnimationApi::class)
 @Composable
 @Destination
 fun BottomHolderScreen(parentNavController: NavController) {

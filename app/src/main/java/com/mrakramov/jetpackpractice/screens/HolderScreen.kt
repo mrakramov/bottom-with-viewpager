@@ -2,7 +2,6 @@ package com.mrakramov.jetpackpractice.screens
 
 import androidx.compose.runtime.Composable
 import androidx.navigation.NavController
-import androidx.navigation.NavHostController
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
@@ -23,14 +22,16 @@ fun HolderScreen(parentNavController: NavController) {
         startDestination = BottomHolderScreenDestination.route
     ) {
         composable(BottomHolderScreenDestination.route) {
-            BottomHolderScreen(navController)
+            BottomHolderScreen(
+                navController
+
+            )
         }
         composable(
             DetailScreenDestination.route,
             arguments = DetailScreenDestination.arguments,
             deepLinks = DetailScreenDestination.deepLinks
-        )
-        {
+        ) {
             val arguments = it.arguments
             arguments?.getString(ARG)?.let { message ->
                 DetailScreen(message)

@@ -10,14 +10,12 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavController
 import com.mrakramov.jetpackpractice.screens.destinations.HolderScreenDestination
-import com.ramcosta.composedestinations.annotation.DeepLink
 import com.ramcosta.composedestinations.annotation.Destination
 import kotlinx.coroutines.delay
 
 @Composable
 @Destination(start = true)
 fun SplashScreen(parenNavController: NavController) {
-
     LaunchedEffect(Unit) {
         delay(1000L)
         parenNavController.navigate(HolderScreenDestination.route)
